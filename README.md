@@ -53,3 +53,4 @@ npm create vite@5
 npm install cypress --save-dev
 npx cypress open
 change name cypress.config.js
+json-server --watch db.json --port=3005
