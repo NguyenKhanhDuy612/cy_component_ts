@@ -18,7 +18,7 @@ const GetApi: React.FC = () => {
 			const result = await response.json();
 			setData(result);
 		} catch (error) {
-			setError(error.message);
+			setError((error as Error).message);
 		} finally {
 			setLoading(false);
 		}

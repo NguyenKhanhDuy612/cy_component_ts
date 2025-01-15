@@ -1,7 +1,5 @@
 // src/components/form/form.test.tsx
-import React from "react";
 import FormComponent from "./form";
-import FormComponentTwo from "./formTwo";
 
 describe("FormComponent", () => {
 	describe("Form Success", () => {
@@ -45,19 +43,6 @@ describe("FormComponent", () => {
 
 		it("shows an error message when the email input is empty", () => {
 		cy.mount(<FormComponent />);
-		cy.get("form").submit();
-		cy.get('input[name="email"]').should('have.attr', 'aria-invalid', 'true');
-		cy.get('input[name="email"]')
-			.next()
-			.should("contain", "Email is required");
-		});
-	});
-
-	// check email format
-	describe("Form email format", () => {
-		it("shows an error message when the email format is incorrect", () => {
-		cy.mount(<FormComponentTwo />);
-		cy.get('input[name="email"]').type("john.doe");
 		cy.get("form").submit();
 		cy.get('input[name="email"]').should('have.attr', 'aria-invalid', 'true');
 		cy.get('input[name="email"]')

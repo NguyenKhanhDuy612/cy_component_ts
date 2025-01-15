@@ -10,7 +10,7 @@ interface FormComponentTwoProps {
 	setFormData: React.Dispatch<React.SetStateAction<FormData>>;
 }
 
-const FormComponentTwoP: React.FC<FormComponentTwoProps> = ({ formData, setFormData }) => {
+const FormComponentThree: React.FC<FormComponentTwoProps> = ({ formData, setFormData }) => {
 	const [formErrors, setFormErrors] = useState({ mess: "" });
 
 	const validateEmail = (email: string) => {
@@ -63,4 +63,4 @@ const FormComponentTwoP: React.FC<FormComponentTwoProps> = ({ formData, setFormD
 	);
 };
 
-export default FormComponentTwoP;
+export default FormComponentThree;

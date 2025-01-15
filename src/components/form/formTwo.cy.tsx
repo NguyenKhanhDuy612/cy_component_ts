@@ -1,7 +1,6 @@
 // src/components/form/form.test.tsx
-import React from "react";
 import FormComponentTwo from "./formTwo";
-import FormComponentTwoP from "./formTwoProp";
+import FormComponentThree from "./formTwoProp";
 
 describe("FormComponent", () => {
 	// check email format
@@ -54,14 +53,15 @@ describe("FormComponent", () => {
 	describe('Check form with props', () => {
 		it('renders the form with given prop values', () => {
 			const formData = { name: 'Jane Doe', email: 'jane.doe@example.com' };
-			cy.mount(<FormComponentTwoP formData={formData} />);
+			const setFormData = cy.stub();
+			cy.mount(<FormComponentThree formData={formData} setFormData={setFormData} />);
 			cy.get('input#name').should('have.value', formData.name);
 			cy.get('input#email').should('have.value', formData.email);
 		});
-
 		it('validates the form with given prop values', () => {
 			const formData = { name: 'Jane Doe', email: '' };
-			cy.mount(<FormComponentTwoP formData={formData} />);
+			const setFormData = cy.stub();
+			cy.mount(<FormComponentThree formData={formData} setFormData={setFormData} />);
 			cy.get('button[type="submit"]').click();
 			cy.get('span[role="alert"]').should('contain', 'Email is required');
 		});
